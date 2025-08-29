@@ -1,0 +1,19 @@
+# node stuff
+**/node_modules/
+**/package-lock.json
+**/yarn.lock
+**/.next/
+**/out/
+**/build/
+
+# environment variables
+**/.env
+**/.env.development
+**/.env.production
+
+# IDE
+**/.idea/
+**/.vscode/
+
+**/*.tsbuildinfo
+**/next-env.d.ts

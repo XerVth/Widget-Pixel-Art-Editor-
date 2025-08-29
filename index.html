@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Pixel Art Widget</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h2>Pixel Art Widget</h2>
+
+  <label>Canvas size:
+    <select id="canvasSize">
+      <option value="8" selected>8x8</option>
+      <option value="16">16x16</option>
+      <option value="32">32x32</option>
+      <option value="64">64x64</option>
+    </select>
+  </label>
+
+  <div id="toolbar">
+    <input type="color" id="colorPicker" value="#000000">
+    <button id="eraserBtn">Eraser</button>
+    <button id="clearBtn">Clear</button>
+    <button id="saveBtn">Save as SVG</button>
+  </div>
+
+  <div style="display: flex; gap: 20px; flex: 1; width: 100%;">
+    <!-- Pixel grid -->
+    <div id="gridContainer">
+      <div id="grid"></div>
+    </div>
+
+    <!-- Recent colors -->
+    <div id="recentColorsContainer">
+      <h3>Recent Colors</h3>
+      <div id="recentColors" style="display: flex; flex-direction: left; margin-right:50px ;align-self: center ; gap: 20px;"></div>
+    </div>
+  </div>
+
+  <script>
+    const grid = document.getElementById("grid");
+    const select = document.getElementById("canvasSize");
+
+    function createGrid(size) {
+      grid.innerHTML = "";
+      grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+      grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+      for (let i = 0; i < size * size; i++) {
+        const cell = document.createElement("div");
+        cell.classList.add("pixel");
+        grid.appendChild(cell);
+      }
+
+      resizeGrid();
+    }
+
+    function resizeGrid() {
+      const container = document.getElementById("gridContainer");
+      const size = Math.min(container.clientWidth, container.clientHeight);
+      grid.style.width = size + "px";
+      grid.style.height = size + "px";
+    }
+
+    // Initialize
+    createGrid(parseInt(select.value));
+
+    // Update when dropdown changes
+    select.addEventListener("change", () => {
+      createGrid(parseInt(select.value));
+    });
+
+    // Resize on window resize
+    window.addEventListener("resize", resizeGrid);
+  </script>
+  <script src="renderer.js"></script>
+</body>
+</html>
