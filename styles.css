@@ -7,13 +7,11 @@ html, body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background-color: rgb(255, 255, 255);
-  color: #f3befa;
+  background-color: rgb(26, 7, 69);
+  color: #9485da;
   align-items: center;
   font-family: 'Pixelify Sans', sans-serif;
 }
-
-
 
 /* Toolbar styles */
 #toolbar {
@@ -43,8 +41,8 @@ html, body {
 
 /* Each pixel cell */
 .pixel {
-  border: 0.5px solid #ddd; /*just in case if I want grid lines */
-  background: white;
+  border: 0.5px solid #9485da; /*just in case if I want grid lines */
+  background: rgb(36, 15, 83);
   cursor: pointer;
   width: 100%;
   height: 100%;
@@ -56,4 +54,15 @@ html, body {
   src: url('art_SVG/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+
+.lg-width-5 {
+  width: 100%;
+}
+
+@media (min-width: 20%) {
+  .lg-width-5 {
+    width: 5%;
+  }
 }

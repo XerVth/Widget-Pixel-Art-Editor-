@@ -82,7 +82,7 @@ eraserBtn.addEventListener("click", () => {
 // -------------------------------
 const recentColorsContainer = document.getElementById("recentColors");
 let recentColors = []; // store last N colors
-const maxRecentColors = 13; // number of recent colors to show
+const maxRecentColors = 8; // number of recent colors to show
 
 // -------------------------------
 // Update recent colors palette
